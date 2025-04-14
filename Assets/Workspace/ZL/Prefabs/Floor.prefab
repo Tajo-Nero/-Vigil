@@ -13643,22 +13643,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6611801392178882798}
     m_Modifications:
-    - target: {fileID: 1216077448671590, guid: acc4ad83a63e06f439ceee177f238102, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1216077448671590, guid: acc4ad83a63e06f439ceee177f238102, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 4095355706562146, guid: acc4ad83a63e06f439ceee177f238102, type: 3}
-      propertyPath: m_RootOrder
-      value: 371
-      objectReference: {fileID: 0}
-    - target: {fileID: 4095355706562146, guid: acc4ad83a63e06f439ceee177f238102, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.807
-      objectReference: {fileID: 0}
     - target: {fileID: 4095355706562146, guid: acc4ad83a63e06f439ceee177f238102, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.648001
