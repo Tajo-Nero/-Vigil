@@ -10,7 +10,7 @@ public class CDO_Soldier : MonoBehaviour
     AudioSource audioSource;
 
     public float detectionRadius = 5f;  // 플레이어 감지 반경
-    public LayerMask playerLayer;
+    public LayerMask playerLayer; // 플레이어가 속한 레이어
 
     private bool hasSaluted = false; // 최초 경례 여부 확인
     private bool isLiedown = false;  // 엎드려 상태 유지 여부
@@ -33,6 +33,9 @@ public class CDO_Soldier : MonoBehaviour
     public AudioClip standupSound;
     public AudioClip saluteSound;
 
+    /// <summary>
+    /// 초기 설정: 애니메이터와 오디오 소스를 가져오고 기본 상태를 Idle로 설정.
+    /// </summary>
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -48,11 +51,17 @@ public class CDO_Soldier : MonoBehaviour
         SetAnimationState(AnimationState.Idle); // 초기 상태: 쉬어
     }
 
+    /// <summary>
+    /// 매 프레임마다 플레이어를 감지하는 함수.
+    /// </summary>
     private void Update()
     {
         DetectPlayer();  // 플레이어 감지 유지
     }
 
+    /// <summary>
+    /// 플레이어를 감지하여 최초 한 번만 경례를 실행.
+    /// </summary>
     void DetectPlayer()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRadius, playerLayer);
@@ -63,13 +72,19 @@ public class CDO_Soldier : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 경례 애니메이션을 실행하고 경례 상태를 유지.
+    /// </summary>
     void Salute()
     {
         SetAnimationState(AnimationState.Salute);
         isSaluting = true;
-        hasSaluted = true;
+        hasSaluted = true; // 최초 경례 실행 후 다시 감지하지 않음
     }
 
+    /// <summary>
+    /// 쉬어 동작을 실행하며, 경례 또는 엎드려 상태를 해제하고 2초 후 Idle 상태로 복귀.
+    /// </summary>
     void Rest()
     {
         if (isSaluting)
@@ -81,12 +96,15 @@ public class CDO_Soldier : MonoBehaviour
             SetAnimationState(AnimationState.Standup);
         }
 
-        Invoke("ReturnToIdle", 2f);
+        Invoke("ReturnToIdle", 2f); // 2초 후 Idle 상태로 복귀
         hasSaluted = false;
         isSaluting = false;
         isLiedown = false;
     }
 
+    /// <summary>
+    /// 엎드려 애니메이션을 실행하고 상태를 유지.
+    /// </summary>
     void Liedown()
     {
         SetAnimationState(AnimationState.Liedown);
@@ -94,6 +112,9 @@ public class CDO_Soldier : MonoBehaviour
         hasSaluted = false;
     }
 
+    /// <summary>
+    /// 애니메이션 상태를 변경하는 함수.
+    /// </summary>
     void SetAnimationState(AnimationState newState)
     {
         animator.SetBool("isIdle", false);
@@ -109,6 +130,9 @@ public class CDO_Soldier : MonoBehaviour
         Debug.Log($"현재 상태: {newState}");
     }
 
+    /// <summary>
+    /// 주어진 상태에 따라 오디오를 재생하는 함수.
+    /// </summary>
     void PlaySound(AudioState state)
     {
         if (audioClips.ContainsKey(state) && audioClips[state] != null)
@@ -117,6 +141,9 @@ public class CDO_Soldier : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 2초 후 Idle 상태로 복귀하는 함수.
+    /// </summary>
     void ReturnToIdle()
     {
         animator.SetBool("isAttention", false);
