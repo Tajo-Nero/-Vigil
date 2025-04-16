@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class CDO_Controller : MonoBehaviour
 {
-    public CDO_Soldier testScript; // Test 스크립트 참조
+    public CDO_Soldier CDO_SoldierCtrScript; // Test 스크립트 참조
 
     void Start()
     {
-        if (testScript == null)
+        if (CDO_SoldierCtrScript == null)
         {
             Debug.LogError("스크립트 꽂아라");
         }
@@ -14,6 +14,6 @@ public class CDO_Controller : MonoBehaviour
 
     void Update()
     {
-       testScript.HandleKeyInput();
+       CDO_SoldierCtrScript.HandleKeyInput();
     }
 }
