@@ -4,28 +4,50 @@ using UnityEngine;
 
 public class LeftHandMotion : MonoBehaviour
 {
-    public bool isFist = false;
+    public bool isThumbsUp = false;
+    public bool isLittle = false;
     public GameObject xrOri;
-    public Transform headTransform; // XR Origin 안의 Main Camera (보통은 CenterEyeAnchor)
+
+    public Transform headTransform;
+
+    Vector3 moveDir;
 
     public float moveSpeed = 1f;
 
+    private void Start()
+    {
+    }
     void FixedUpdate()
     {
-        if (isFist)
+        if (isThumbsUp)
         {
-            Vector3 moveDir = new Vector3(headTransform.forward.x, 0, headTransform.forward.z).normalized;
+            moveDir = new Vector3(headTransform.forward.x, 0, headTransform.forward.z).normalized;
             xrOri.transform.position += moveDir * moveSpeed * Time.deltaTime;
         }
+        else if(isLittle)
+        {
+            moveDir = new Vector3(headTransform.forward.x, 0, headTransform.forward.z).normalized;
+            xrOri.transform.position -= moveDir * moveSpeed * Time.deltaTime;
+        }
+        
     }
+    public void LittleUp()
+    {
+        isLittle = true;
+    }
+    public void LittleDown()
+    {
+        isLittle = false;
+    }
+
     public void HoldFist()
     {
-        isFist = true;
+        isThumbsUp = true;
         Debug.Log("걷기 시작");
     }
     public void WarmUpFist()
     {
-        isFist = false;
+        isThumbsUp = false;
         Debug.Log("걷기 끝");
     }
 
