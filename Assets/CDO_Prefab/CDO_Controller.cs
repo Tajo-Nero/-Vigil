@@ -11,9 +11,5 @@ public class CDO_Controller : MonoBehaviour
             Debug.LogError("스크립트 꽂아라");
         }
     }
-
-    void Update()
-    {
-       CDO_SoldierCtrScript.HandleKeyInput();
-    }
+    
 }

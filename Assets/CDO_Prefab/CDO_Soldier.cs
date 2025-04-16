@@ -1,80 +1,123 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 플레이어를 감지하고 애니메이션 상태를 변경하는 최동오일병 스크립트
+/// </summary>
 public class CDO_Soldier : MonoBehaviour
 {
     Animator animator;
     AudioSource audioSource;
 
-    // 애니메이션 상태 Enum
-    private enum AnimationState { Idle, Salute, Attention, Liedown, Standup }
+    public float detectionRadius = 5f;  // 플레이어 감지 반경
+    public LayerMask playerLayer;
 
-    // 오디오 상태 Enum (애니메이션과 동일한 항목)
-    // 맨처음 실행할때 Idle상태라 쉬어 사운드가 자동으로 나옴 
-    private enum AudioState { Idle, Salute, Attention, Liedown, Standup }
+    private bool hasSaluted = false; // 최초 경례 여부 확인
+    private bool isLiedown = false;  // 엎드려 상태 유지 여부
+    private bool isSaluting = false; // 경례 상태 유지 여부
+
+    // 애니메이션 상태 Enum
+    private enum AnimationState { Idle, Attention, Liedown, Standup, Salute }
+
+    // 오디오 상태 Enum
+    private enum AudioState { Idle, Attention, Liedown, Standup, Salute }
 
     private AnimationState currentState = AnimationState.Idle;
-
-    // 오디오 클립을 저장할 Dictionary
-    private Dictionary<AudioState, AudioClip> audioClips = new Dictionary<AudioState, AudioClip>();
-
-    public AudioClip idleSound;
-    public AudioClip saluteSound;
-    public AudioClip attentionSound;
-    public AudioClip liedownSound;
-    public AudioClip standupSound;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
 
-        if (animator == null) Debug.LogError("애니메이터가 없습니다!");
-        if (audioSource == null) Debug.LogError("오디오 소스가 없습니다!");
-
-        // 오디오 클립을 Dictionary에 매핑
-        audioClips.Add(AudioState.Idle, idleSound);
-        audioClips.Add(AudioState.Salute, saluteSound);
-        audioClips.Add(AudioState.Attention, attentionSound);
-        audioClips.Add(AudioState.Liedown, liedownSound);
-        audioClips.Add(AudioState.Standup, standupSound);
-
-        SetAnimationState(AnimationState.Idle);
+        SetAnimationState(AnimationState.Idle); // 초기 상태: 쉬어
     }
 
-    public void HandleKeyInput()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) SetAnimationState(AnimationState.Salute);
-        if (Input.GetKeyDown(KeyCode.Alpha2)) SetAnimationState(AnimationState.Attention);
-        if (Input.GetKeyDown(KeyCode.Alpha3)) SetAnimationState(AnimationState.Liedown);
-        if (Input.GetKeyDown(KeyCode.Alpha4)) SetAnimationState(AnimationState.Standup);
-        if (Input.GetKeyDown(KeyCode.Alpha5)) SetAnimationState(AnimationState.Idle);
+        DetectPlayer();  // 플레이어 감지 유지
     }
 
+    /// <summary>
+    /// 플레이어를 감지하여 최초 한 번만 경례 실행.
+    /// </summary>
+    void DetectPlayer()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRadius, playerLayer);
+
+        if (hitColliders.Length > 0 && !hasSaluted) // 최초 한 번만 경례 실행
+        {
+            Salute();
+        }
+    }
+
+    /// <summary>
+    /// 경례 애니메이션을 실행하고 경례 상태 유지.
+    /// </summary>
+    void Salute()
+    {
+        SetAnimationState(AnimationState.Salute);
+        isSaluting = true;
+        hasSaluted = true; // 최초 경례 실행 후 다시 감지하지 않음
+    }
+
+    /// <summary>
+    /// 쉬어 동작을 실행하며, 경례 또는 엎드려 상태를 해제하고 2초 후 Idle 상태로 복귀.
+    /// </summary>
+    void Rest()
+    {
+        if (isSaluting)
+        {
+            SetAnimationState(AnimationState.Attention);
+        }
+        else if (isLiedown)
+        {
+            SetAnimationState(AnimationState.Standup);
+        }
+
+        Invoke("ReturnToIdle", 2f);
+        hasSaluted = false;
+        isSaluting = false;
+        isLiedown = false;
+    }
+
+    /// <summary>
+    /// 대가리박아 실행하고 상태 유지.
+    /// </summary>
+    void Liedown()
+    {
+        SetAnimationState(AnimationState.Liedown);
+        isLiedown = true;
+        hasSaluted = false;
+    }
+
+    /// <summary>
+    /// 애니메이션 상태를 변경하는 함수.
+    /// </summary>
     void SetAnimationState(AnimationState newState)
     {
-        // 모든 애니메이션 상태 초기화
         animator.SetBool("isIdle", false);
-        animator.SetBool("isSalute", false);
         animator.SetBool("isAttention", false);
         animator.SetBool("isLiedown", false);
         animator.SetBool("isStandup", false);
+        animator.SetBool("isSalute", false);
 
-        // 새 상태 적용
         currentState = newState;
         animator.SetBool($"is{newState}", true);
-
-        // 애니메이션 실행 + 오디오 재생
-        PlaySound((AudioState)newState);
 
         Debug.Log($"현재 상태: {newState}");
     }
 
-    void PlaySound(AudioState state)
+    /// <summary>
+    /// 2초 후 Idle 상태로 복귀하는 함수.
+    /// </summary>
+    void ReturnToIdle()
     {
-        if (audioClips.ContainsKey(state) && audioClips[state] != null)
-        {
-            audioSource.PlayOneShot(audioClips[state]);
-        }
+        animator.SetBool("isAttention", false);
+        animator.SetBool("isStandup", false);
+        animator.SetBool("isIdle", true);
+        isSaluting = false;
+        isLiedown = false;
+
+        Debug.Log("쉬어!");
     }
 }
