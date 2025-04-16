@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Samples/XR Hands/1.4.3/HandVisualizer/Materials.meta
 guid: fe662ea7d4bacf74ea2459d10b988a1b
+========
+guid: f54d1bd14bd3ca042bd867b519fee8cc
+>>>>>>>> origin/Vifil_CHM:Assets/TextMesh Pro.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
