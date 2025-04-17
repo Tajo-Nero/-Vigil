@@ -46,9 +46,12 @@ public class Slender_Ctrl : MonoBehaviour
 
         if (hitColliders.Length > 0)
         {
-            if (isIdle) // Idle 상태였다가 Run 상태로 변경될 때만 사운드 재생
+            if (isIdle) // Idle 상태에서 Run으로 변경될 때만 사운드 실행
             {
-                audioSource.PlayOneShot(runSound);
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.PlayOneShot(runSound);
+                }
             }
 
             runSpeed = Mathf.Lerp(runSpeed, 1f, Time.deltaTime * 2f);
@@ -60,6 +63,11 @@ public class Slender_Ctrl : MonoBehaviour
             // 감지 범위를 벗어나면 즉시 Idle 상태로 변경하고 이동 중지
             runSpeed = 0f;
             isIdle = true;
+
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop(); // 감지되지 않으면 사운드 중지
+            }
         }
     }
 
