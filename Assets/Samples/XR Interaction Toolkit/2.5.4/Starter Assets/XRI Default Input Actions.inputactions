@@ -104,7 +104,7 @@
                 {
                     "name": "",
                     "id": "e2017383-a3f6-4c46-acb1-012b8eece9cc",
-                    "path": "<XRHMD>/centerEyeRotation",
+                    "path": "<XRInputV1::OpenXR::HeadTrackingOpenXR>/centereyerotation",
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
@@ -118,7 +118,7 @@
                     "path": "<HandheldARInputDevice>/deviceRotation",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Generic XR Controller",
                     "action": "Rotation",
                     "isComposite": false,
                     "isPartOfComposite": false

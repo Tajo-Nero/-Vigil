@@ -40,12 +40,12 @@ public class LeftHandMotion : MonoBehaviour
         isLittle = false;
     }
 
-    public void HoldFist()
+    public void ThumbsUp()
     {
         isThumbsUp = true;
         Debug.Log("∞»±‚ Ω√¿€");
     }
-    public void WarmUpFist()
+    public void ThumbsDown()
     {
         isThumbsUp = false;
         Debug.Log("∞»±‚ ≥°");

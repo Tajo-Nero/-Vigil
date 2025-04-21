@@ -94,7 +94,6 @@ public class CDO_Soldier : MonoBehaviour
         }
         else if (isLiedown)
         {
-            Debug.Log("일어나 최동오");
             SetAnimationState(AnimationState.Standup);
         }
 
