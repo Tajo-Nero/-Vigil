@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/YJH/YJH_Test.unity.meta
+guid: fc872478a376da54983706e2882734c1
+========
 guid: fecd9c8e33c2c134c9be0ddee1a5e99d
+>>>>>>>> origin/Vifil_CHM:Assets/Scenes/CHM Scene.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
