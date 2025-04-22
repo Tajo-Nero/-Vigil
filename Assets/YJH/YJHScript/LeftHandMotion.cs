@@ -31,24 +31,29 @@ public class LeftHandMotion : MonoBehaviour
         }
         
     }
-    public void LittleUp()
+    public void Backward()
     {
         isLittle = true;
     }
-    public void LittleDown()
+    public void StopBackward()
     {
         isLittle = false;
     }
 
-    public void ThumbsUp()
+    public void Forward()
     {
         isThumbsUp = true;
         Debug.Log("∞»±‚ Ω√¿€");
     }
-    public void ThumbsDown()
+    public void StopForward()
     {
         isThumbsUp = false;
         Debug.Log("∞»±‚ ≥°");
     }
-
+    public void TurnBack()
+    {
+        Debug.Log(xrOri.transform.rotation);
+        Quaternion.Inverse(xrOri.transform.rotation);
+        Debug.Log(xrOri.transform.rotation);
+    }
 }
