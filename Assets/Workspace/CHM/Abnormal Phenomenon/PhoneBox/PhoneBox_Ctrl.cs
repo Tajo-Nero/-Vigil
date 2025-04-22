@@ -19,6 +19,13 @@ public class PhoneBox_Ctrl : MonoBehaviour
         InvokeRepeating("PlaySound", 0f, 8f);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Open();
+        }
+    }
     public void Open()
     {
         if (_animator != null)
