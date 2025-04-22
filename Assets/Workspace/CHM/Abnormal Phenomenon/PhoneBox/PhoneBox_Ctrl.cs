@@ -19,11 +19,12 @@ public class PhoneBox_Ctrl : MonoBehaviour
         InvokeRepeating("PlaySound", 0f, 8f);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             Open();
+            Debug.Log("사랑은 열린 문~");
         }
     }
     public void Open()
