@@ -81,6 +81,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 68ad7bee9c0a5e743aa69210e38ae1fa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8844873993920150417}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 68ad7bee9c0a5e743aa69210e38ae1fa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 307772486500996623}
   m_SourcePrefab: {fileID: 100100000, guid: 68ad7bee9c0a5e743aa69210e38ae1fa, type: 3}
 --- !u!1 &4191806122115260129 stripped
 GameObject:
@@ -96,13 +99,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4191806122115260129}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 036c0bf405ce38142a639a8722d4136a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a2ba51d907695048b2bc846370a6676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 5
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 8
   idleSound: {fileID: 8300000, guid: e265a56f2fae2ec4d91af9d6a90f39f5, type: 3}
   attentionSound: {fileID: 8300000, guid: eea7b9bc7957273499216492d6bb2417, type: 3}
   liedownSound: {fileID: 8300000, guid: abe128daad81e6643b3760adab33d6b3, type: 3}
@@ -118,7 +117,7 @@ Animator:
   m_GameObject: {fileID: 4191806122115260129}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 15c3536fe16e16543a5f399bd0c03bdc, type: 2}
+  m_Controller: {fileID: 9100000, guid: d18c19765aee1f848bf3eb34e56ba3ec, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -225,3 +224,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &307772486500996623
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4191806122115260129}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
