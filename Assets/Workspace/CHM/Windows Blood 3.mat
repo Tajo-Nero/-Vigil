@@ -7,12 +7,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Windows Blood
+  m_Name: Windows Blood 3
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ALPHAPREMULTIPLY_ON
+  - _METALLICGLOSSMAP
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -46,11 +47,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: aaa64cc8a7c659b4c890b5c338242407, type: 3}
+        m_Texture: {fileID: 2800000, guid: e5c530d7be39b9349a68116c4c9c8b7e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: fe75a643896a71c4795017f79b27d808, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -72,7 +73,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _GlossMapScale: 1
-    - _Glossiness: 0.325
+    - _Glossiness: 1
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 3

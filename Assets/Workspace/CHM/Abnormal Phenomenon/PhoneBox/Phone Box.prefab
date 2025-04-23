@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1698291155747694, guid: 18eda4fabd0c44e45931cb3effe7d5ea, type: 3}
+      propertyPath: m_TagString
+      value: Receiver
+      objectReference: {fileID: 0}
     - target: {fileID: 1923807695599562, guid: 18eda4fabd0c44e45931cb3effe7d5ea, type: 3}
       propertyPath: m_Name
       value: Phone Box
@@ -131,7 +135,10 @@ PrefabInstance:
       addedObject: {fileID: 5290314849560253240}
     - targetCorrespondingSourceObject: {fileID: 1698291155747694, guid: 18eda4fabd0c44e45931cb3effe7d5ea, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6795178393709561131}
+      addedObject: {fileID: 1974567135205720568}
+    - targetCorrespondingSourceObject: {fileID: 1698291155747694, guid: 18eda4fabd0c44e45931cb3effe7d5ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8838840191496715963}
     - targetCorrespondingSourceObject: {fileID: 1148954357973322, guid: 18eda4fabd0c44e45931cb3effe7d5ea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4055773863584669301}
@@ -190,11 +197,11 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6795178393709561131
+--- !u!114 &1974567135205720568
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -346,6 +353,19 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &8838840191496715963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7204089999873992149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb1a51a97541d3438969dc20832da8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newMaterial: {fileID: 2100000, guid: 4de46fc3219d2a849a9d09f92568613d, type: 2}
 --- !u!1 &7204295441762046321 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1923807695599562, guid: 18eda4fabd0c44e45931cb3effe7d5ea, type: 3}
