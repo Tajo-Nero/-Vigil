@@ -8,6 +8,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1035053127784163927, guid: 941bd2b172b4b1641b2874dee2dba4b2, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348567135332353642, guid: 941bd2b172b4b1641b2874dee2dba4b2, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309859033921767509, guid: 941bd2b172b4b1641b2874dee2dba4b2, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4216990109752333900, guid: 941bd2b172b4b1641b2874dee2dba4b2, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920491884040693255, guid: 941bd2b172b4b1641b2874dee2dba4b2, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5404156631058360703, guid: 941bd2b172b4b1641b2874dee2dba4b2, type: 3}
       propertyPath: m_Name
       value: Fake Floor
@@ -112,6 +132,8 @@ PrefabInstance:
     - {fileID: 5790414959448598905, guid: 941bd2b172b4b1641b2874dee2dba4b2, type: 3}
     - {fileID: 8334644869208826883, guid: 941bd2b172b4b1641b2874dee2dba4b2, type: 3}
     - {fileID: 8592883109379570930, guid: 941bd2b172b4b1641b2874dee2dba4b2, type: 3}
+    - {fileID: 4626817939739709472, guid: 941bd2b172b4b1641b2874dee2dba4b2, type: 3}
+    - {fileID: 1264751161859375796, guid: 941bd2b172b4b1641b2874dee2dba4b2, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 941bd2b172b4b1641b2874dee2dba4b2, type: 3}
