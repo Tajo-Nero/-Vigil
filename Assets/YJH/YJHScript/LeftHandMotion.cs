@@ -12,7 +12,7 @@ public class LeftHandMotion : MonoBehaviour
 
     Vector3 moveDir;
 
-    public float moveSpeed = 1f;
+    public float moveSpeed = 2f;
 
     private void Start()
     {
@@ -31,24 +31,36 @@ public class LeftHandMotion : MonoBehaviour
         }
         
     }
-    public void LittleUp()
+    public void Backward()
     {
         isLittle = true;
     }
-    public void LittleDown()
+    public void StopBackward()
     {
         isLittle = false;
     }
-
-    public void ThumbsUp()
+    public void MoveFast()
+    {
+        isThumbsUp = true;
+        moveSpeed = 5f;
+    }
+    public void StopFast()
+    {
+        isThumbsUp = false;
+        moveSpeed = 2f;
+    }
+    public void Forward()
     {
         isThumbsUp = true;
         Debug.Log("∞»±‚ Ω√¿€");
     }
-    public void ThumbsDown()
+    public void StopForward()
     {
         isThumbsUp = false;
         Debug.Log("∞»±‚ ≥°");
     }
-
+    public void TurnBack()
+    {
+        xrOri.transform.Rotate(0f, 180f, 0f);
+    }
 }
