@@ -22,7 +22,9 @@ public class TutorialDialog : MonoBehaviour
         {
             "불침번 게임 튜토리얼에 온 것을 환영합니다",
             
-            "지금부터 플레이어는 컨트롤러를 내려 놓고\n손의 움직임으로 게임을 플레이 해야합니다",
+            "지금부터 플레이어는 컨트롤러를 내려 놓고",
+
+            "손의 움직임으로 게임을 플레이 해야합니다",
 
             "컨트롤러를 내려놓은 후\n인게임에 손을 인식시켜 주십시오",
             
@@ -44,7 +46,7 @@ public class TutorialDialog : MonoBehaviour
     {
         DialogueManager manager = FindObjectOfType<DialogueManager>();
 
-        for(int i=0;i<3;i++)
+        for(int i=0;i<4;i++)
         {
             manager.ShowDialogue(dialogueLines[i]);
             yield return new WaitForSeconds(4);
@@ -53,11 +55,11 @@ public class TutorialDialog : MonoBehaviour
         //인식되면 다음 대사
         yield return new WaitUntil(() => LeftHand.activeSelf && RightHand.activeSelf);
 
-        manager.ShowDialogue(dialogueLines[3]);
+        manager.ShowDialogue(dialogueLines[4]);
         yield return new WaitForSeconds(2);
 
         //앞으로 가기
-        manager.ShowDialogue(dialogueLines[4]);
+        manager.ShowDialogue(dialogueLines[5]);
         LeftHandTracker.SetActive(true);                
         yield return new WaitForSeconds(1);
         FingerImg[4].SetActive(true);
@@ -69,26 +71,29 @@ public class TutorialDialog : MonoBehaviour
         
         //제스쳐 인식되면 나오기 
         yield return new WaitUntil(()=> gesture[0]==false);
-        manager.ShowDialogue(dialogueLines[5]);
+        manager.ShowDialogue(dialogueLines[6]);
 
         //뒤로가기
         yield return new WaitForSeconds(3);
         FingerImg[0].SetActive(false);
-        manager.ShowDialogue(dialogueLines[6]);
+        manager.ShowDialogue(dialogueLines[7]);
 
         yield return new WaitForSeconds(1);
         FingerImg[1].SetActive(true);
 
         yield return new WaitUntil(() => gesture[2]==false);
-        manager.ShowDialogue(dialogueLines[5]);
+        manager.ShowDialogue(dialogueLines[6]);
 
         FingerImg[1].SetActive(false);
 
         //뛰기
         yield return new WaitForSeconds(3);
-        manager.ShowDialogue(dialogueLines[7]);
+        manager.ShowDialogue(dialogueLines[8]);
         RightHandTracker.SetActive(true);
 
+
+        yield return new WaitForSeconds(3);
+        manager.HideDialogue();
         yield break;
     }
     public void EndGester(int dd)
