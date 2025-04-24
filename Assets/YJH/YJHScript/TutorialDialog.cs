@@ -67,8 +67,8 @@ public class TutorialDialog : MonoBehaviour
 
         //패널만 잠시 숨기기
         yield return new WaitForSeconds(2);
-        manager.HideDialogue();        
-        
+        manager.HideDialogue();
+        gesture[0] = true;
         //제스쳐 인식되면 나오기 
         yield return new WaitUntil(()=> gesture[0]==false);
         manager.ShowDialogue(dialogueLines[6]);
@@ -81,6 +81,7 @@ public class TutorialDialog : MonoBehaviour
         yield return new WaitForSeconds(1);
         FingerImg[1].SetActive(true);
 
+        gesture[2] = true;
         yield return new WaitUntil(() => gesture[2]==false);
         manager.ShowDialogue(dialogueLines[6]);
 
@@ -89,7 +90,12 @@ public class TutorialDialog : MonoBehaviour
         //뛰기
         yield return new WaitForSeconds(3);
         manager.ShowDialogue(dialogueLines[8]);
+        FingerImg[5].SetActive(true);
         RightHandTracker.SetActive(true);
+
+        gesture[1] = true;
+        yield return new WaitUntil(() => gesture[1] == false);
+        manager.ShowDialogue(dialogueLines[6]);
 
 
         yield return new WaitForSeconds(3);
