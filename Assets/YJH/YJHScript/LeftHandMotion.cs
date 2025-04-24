@@ -12,7 +12,7 @@ public class LeftHandMotion : MonoBehaviour
 
     Vector3 moveDir;
 
-    public float moveSpeed = 1f;
+    public float moveSpeed = 2f;
 
     private void Start()
     {
@@ -39,7 +39,16 @@ public class LeftHandMotion : MonoBehaviour
     {
         isLittle = false;
     }
-
+    public void MoveFast()
+    {
+        isThumbsUp = true;
+        moveSpeed = 5f;
+    }
+    public void StopFast()
+    {
+        isThumbsUp = false;
+        moveSpeed = 2f;
+    }
     public void Forward()
     {
         isThumbsUp = true;
@@ -52,8 +61,6 @@ public class LeftHandMotion : MonoBehaviour
     }
     public void TurnBack()
     {
-        Debug.Log(xrOri.transform.rotation);
-        Quaternion.Inverse(xrOri.transform.rotation);
-        Debug.Log(xrOri.transform.rotation);
+        xrOri.transform.Rotate(0f, 180f, 0f);
     }
 }

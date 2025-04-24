@@ -134,11 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &92641028 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3133494152545806682, guid: 3f7511fbc40ae7a4b89c3298a3de199d, type: 3}
-  m_PrefabInstance: {fileID: 402783663}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &92641029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2321527512367231968, guid: 3f7511fbc40ae7a4b89c3298a3de199d, type: 3}
@@ -1753,15 +1748,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9813c68d7d6f44282ace8bd2d1fd46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UseOptimizedControls: 0
-  m_LeftHandMesh: {fileID: 1048441851}
-  m_RightHandMesh: {fileID: 92641028}
-  m_HandMeshMaterial: {fileID: 2100000, guid: 613690cd962241049a0ec289a6ff835e, type: 2}
-  m_DrawMeshes: 1
-  m_DebugDrawPrefab: {fileID: 6507399986997092475, guid: 254b742d65a15d14b9df756ae77de868, type: 3}
-  m_DebugDrawJoints: 1
-  m_VelocityPrefab: {fileID: 8538602047018081646, guid: 629fd7882ec6bfc499a5fcf20035282b, type: 3}
-  m_VelocityType: 2
 --- !u!1 &944581974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,11 +1858,6 @@ PrefabInstance:
 --- !u!4 &1048441850 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 141466980049140221, guid: b3ed8a0a703ebd34a9e44ed3d9f1fcf6, type: 3}
-  m_PrefabInstance: {fileID: 1048441849}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1048441851 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 773853689519989575, guid: b3ed8a0a703ebd34a9e44ed3d9f1fcf6, type: 3}
   m_PrefabInstance: {fileID: 1048441849}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1085439595
@@ -9974,7 +9955,7 @@ PrefabInstance:
     - target: {fileID: 3679172096297398705, guid: 47e492fec7d311f48b7eabcbb4e2e47d, type: 3}
       propertyPath: m_HandShapeOrPose
       value: 
-      objectReference: {fileID: 11400000, guid: 19f67bcc69361634a82c70dcaa26700b, type: 2}
+      objectReference: {fileID: 11400000, guid: 66b56c5b75380984ba81d161f457370d, type: 2}
     - target: {fileID: 3679172096297398705, guid: 47e492fec7d311f48b7eabcbb4e2e47d, type: 3}
       propertyPath: m_XRAllFingerShapesDebugUI
       value: 
