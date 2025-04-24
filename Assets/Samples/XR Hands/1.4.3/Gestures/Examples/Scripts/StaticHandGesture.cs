@@ -57,6 +57,7 @@ namespace UnityEngine.XR.Hands.Samples.GestureSample
         float m_HoldStartTime;
         Color m_BackgroundDefaultColor;
         Color m_BackgroundHighlightColor = new Color(0f, 0.627451f, 1f);
+        public bool detected;
 
         /// <summary>
         /// The hand tracking events component to subscribe to receive updated joint data to be used for gesture detection.
@@ -179,7 +180,7 @@ namespace UnityEngine.XR.Hands.Samples.GestureSample
             if (!isActiveAndEnabled || Time.timeSinceLevelLoad < m_TimeOfLastConditionCheck + m_GestureDetectionInterval)
                 return;
 
-            var detected =
+            detected =
                 m_HandTrackingEvents.handIsTracked &&
                 m_HandShape != null && m_HandShape.CheckConditions(eventArgs) ||
                 m_HandPose != null && m_HandPose.CheckConditions(eventArgs);
