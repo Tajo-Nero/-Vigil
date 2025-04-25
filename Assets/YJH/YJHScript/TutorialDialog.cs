@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.Hands.Samples.GestureSample;
 
@@ -6,9 +7,10 @@ public class TutorialDialog : MonoBehaviour
 {
     //TalkableBase TT;
     string[] dialogueLines;
-    StaticHandGesture SG;
+    public CDO_Soldier CDO;
     public bool[] gesture= new bool[3];
 
+    [SerializeField] GameObject fakeWall;
     [SerializeField] GameObject LeftHand;
     [SerializeField] GameObject LeftHandTracker;
     [SerializeField] GameObject RightHand;
@@ -17,7 +19,6 @@ public class TutorialDialog : MonoBehaviour
 
     void Awake()
     {
-        SG = new();
         dialogueLines = new string[]
         {
             "불침번 게임 튜토리얼에 온 것을 환영합니다",
@@ -36,7 +37,13 @@ public class TutorialDialog : MonoBehaviour
 
             "뒤로 이동하려면 엄지만 펴주세요",
 
-            "달리려면 검지와 중지만 펴주세요"
+            "달리려면 검지와 중지만 펴주세요",
+
+            "뒤로 도려면 새끼 손가락만 펴주세요",
+
+            "뒤를 돌아 군인 앞까지 다가가 주세요",
+
+            "오른손 사용법을 알려드리겠습니다\n오른손은 상호작용 전용입니다"
 
         };
         StartCoroutine(Talkad());
@@ -69,6 +76,7 @@ public class TutorialDialog : MonoBehaviour
         yield return new WaitForSeconds(2);
         manager.HideDialogue();
         gesture[0] = true;
+
         //제스쳐 인식되면 나오기 
         yield return new WaitUntil(()=> gesture[0]==false);
         manager.ShowDialogue(dialogueLines[6]);
@@ -91,13 +99,43 @@ public class TutorialDialog : MonoBehaviour
         yield return new WaitForSeconds(3);
         manager.ShowDialogue(dialogueLines[8]);
         FingerImg[5].SetActive(true);
-        RightHandTracker.SetActive(true);
 
         gesture[1] = true;
         yield return new WaitUntil(() => gesture[1] == false);
         manager.ShowDialogue(dialogueLines[6]);
 
 
+        FingerImg[5].SetActive(false);
+
+        //뒤로 돌기
+        yield return new WaitForSeconds(3);
+        manager.ShowDialogue(dialogueLines[9]);
+        FingerImg[6].SetActive(true);
+
+
+        gesture[3] = true;
+        yield return new WaitUntil(() => gesture[3] == false);
+
+        manager.ShowDialogue(dialogueLines[6]);
+        FingerImg[6].SetActive(false);
+        FingerImg[4].SetActive(false);
+
+        // 왼손 끝 페이크벽 삭제 후 일병한테 출발
+        yield return new WaitForSeconds(3);
+
+        Destroy(fakeWall);
+        manager.ShowDialogue(dialogueLines[10]);
+
+        yield return new WaitUntil(() => CDO.isMeet);
+        
+        //오른손 사용법 알려주기 시작
+        RightHandTracker.SetActive(true);
+        manager.ShowDialogue(dialogueLines[11]);
+
+
+
+
+        //다 끝난후 삭제
         yield return new WaitForSeconds(3);
         manager.HideDialogue();
         yield break;

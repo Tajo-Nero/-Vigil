@@ -12,6 +12,7 @@ public class CDO_Soldier : MonoBehaviour
 
     private bool isLiedown = false; // 엎드려 상태 확인
 
+    public bool isMeet = false;
     // 애니메이션 상태 Enum
     private enum AnimationState { Idle, Attention, Liedown, Standup, Salute }
 
@@ -64,7 +65,7 @@ public class CDO_Soldier : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-
+        isMeet=true;
         Salute();
     }
 
