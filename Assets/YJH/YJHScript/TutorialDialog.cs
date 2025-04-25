@@ -41,9 +41,15 @@ public class TutorialDialog : MonoBehaviour
 
             "뒤로 도려면 새끼 손가락만 펴주세요",
 
-            "뒤를 돌아 군인 앞까지 다가가 주세요",
+            "군인 앞까지 다가가 주세요",
 
-            "오른손 사용법을 알려드리겠습니다\n오른손은 상호작용 전용입니다"
+            "오른손 사용법을 알려드리겠습니다\n오른손은 상호작용 입니다",
+
+            "경례를 받아서 쉬어를 하려면 오른손 엄지만 펴주세요",
+
+            "얼차려를 주고 싶으면 오른손 검지만 펴주세요",
+            
+            "수고하셨습니다\n오른쪽에 있는 버튼을 눌러 이동하십쇼\n행운을 빕니다"
 
         };
         StartCoroutine(Talkad());
@@ -132,11 +138,34 @@ public class TutorialDialog : MonoBehaviour
         RightHandTracker.SetActive(true);
         manager.ShowDialogue(dialogueLines[11]);
 
+        yield return new WaitForSeconds(4);
 
+        //쉬어
+        manager.ShowDialogue(dialogueLines[12]);
+        FingerImg[7].SetActive(true);
+        FingerImg[8].SetActive(true);
 
+        gesture[4] = true;
+        yield return new WaitUntil(() => gesture[4] == false);
+        manager.ShowDialogue(dialogueLines[6]);
+        FingerImg[8].SetActive(false);
 
-        //다 끝난후 삭제
+        //엎드려
         yield return new WaitForSeconds(3);
+        manager.ShowDialogue(dialogueLines[13]);
+        FingerImg[9].SetActive(true);
+
+        gesture[5] = true;
+        yield return new WaitUntil(() => gesture[5] == false);
+        manager.ShowDialogue(dialogueLines[6]);
+        FingerImg[7].SetActive(false);
+        FingerImg[9].SetActive(false);
+
+        yield return new WaitForSeconds(3);
+        manager.ShowDialogue(dialogueLines[14]);
+        //다 끝난후 삭제
+        yield return new WaitForSeconds(6);
+
         manager.HideDialogue();
         yield break;
     }
@@ -156,6 +185,13 @@ public class TutorialDialog : MonoBehaviour
             case 4:
                 gesture[3] = false;
                 break;
+            case 5:
+                gesture[4] = false;
+                break;
+            case 6:
+                gesture[5] = false;
+                break;
+
         }
 
             
