@@ -353,6 +353,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2411090262735409094, guid: 10a1b17955bc63b4da13380357a19dcc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 23.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411090262735409094, guid: 10a1b17955bc63b4da13380357a19dcc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 3936866544981243623, guid: 10a1b17955bc63b4da13380357a19dcc, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2078,6 +2086,22 @@ PrefabInstance:
       propertyPath: cryingPos
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4785045843101883929, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: saluteSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 0bd395f05faf0cd47b862a13bfa8971a, type: 3}
+    - target: {fileID: 4785045843101883929, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: liedownSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 54acef3f5d3be994a81cdef4c8ddd400, type: 3}
+    - target: {fileID: 4785045843101883929, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: standupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 32b28aba84a58814db2416b6a1bbb003, type: 3}
+    - target: {fileID: 4785045843101883929, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: attentionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: de8b04aaa9042ee44a4852ac7de4cca7, type: 3}
     - target: {fileID: 5651246731867413090, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
       propertyPath: m_Avatar
       value: 
