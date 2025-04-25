@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CDO_Crying : MonoBehaviour
@@ -9,10 +8,26 @@ public class CDO_Crying : MonoBehaviour
     private Animator animator;
     private bool isPlayerNearby = false;
 
+    public GameObject soldierPrefab; // 솔져 프리팹
+    public GameObject slenderPrefab; // 슬렌더맨 프리팹
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
+
+        // 솔져 프리팹 비활성화
+        if (soldierPrefab != null)
+        {
+            soldierPrefab.SetActive(false);
+        }     
+
+        // 슬렌더맨 프리팹 비활성화 (초기 상태)
+        if (slenderPrefab != null)
+        {
+            slenderPrefab.SetActive(false);
+        }
+       
 
         // 10초마다 사운드 재생
         InvokeRepeating(nameof(PlayCryingSound), 0f, 10f);
@@ -38,11 +53,15 @@ public class CDO_Crying : MonoBehaviour
                 audioSource.Stop();
             }
 
+            // 슬렌더맨 프리팹 활성화
+            if (slenderPrefab != null)
+            {
+                slenderPrefab.SetActive(true);
+            }
+
             // 플레이어가 가까이 오면 울음 반복 중지
             CancelInvoke(nameof(PlayCryingSound));
-
-            // 일정 시간이 지나면 다시 원래 상태로 (예: 5초 후 초기화)
-            Invoke(nameof(ResetState), 5f);
+           
         }
     }
 
@@ -53,7 +72,7 @@ public class CDO_Crying : MonoBehaviour
             isPlayerNearby = false;
 
             // 플레이어가 멀어지면 다시 울음 반복 시작
-            InvokeRepeating(nameof(PlayCryingSound), 10f, 10f);
+            InvokeRepeating(nameof(PlayCryingSound), 0f, 20f);
         }
     }
 
