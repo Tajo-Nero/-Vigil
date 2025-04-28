@@ -66,18 +66,18 @@ namespace ZL.Unity.UI
             {
                 minute = value;
 
-                if (minute > 59)
+                if (minute >= 60)
                 {
-                    minute = 0;
+                    Hour += minute / 60;
 
-                    Hour += 1;
+                    minute %= 60;
                 }
 
                 else if (minute < 0)
                 {
-                    minute = 59;
+                    Hour += minute / 60;
 
-                    Hour -= 1;
+                    minute %= 60;
                 }
             }
         }
@@ -96,24 +96,21 @@ namespace ZL.Unity.UI
 
                 if (seconds >= 60f)
                 {
-                    seconds = Mathf.Repeat(seconds, 60f);
+                    Minute += Mathf.FloorToInt(seconds / 60f);
 
-                    Minute += 1;
+                    seconds %= 60f;
                 }
 
                 else if (seconds < 0f)
                 {
-                    seconds = Mathf.Repeat(seconds, 60f);
+                    Minute += Mathf.FloorToInt(seconds / 60f);
 
-                    Minute -= 1;
+                    seconds %= 60f;
                 }
             }
         }
 
-        private void Awake()
-        {
-            blinking = Blinking();
-        }
+        private bool isBlinked = false;
 
         private void OnValidate()
         {
@@ -129,14 +126,25 @@ namespace ZL.Unity.UI
             }
         }
 
+        private void OnEnable()
+        {
+            StartCoroutine(Blinking());
+        }
+
         private void Update()
         {
-            blinking.MoveNext();
+            if (isBlinked == false)
+            {
+                textController.Text = $"{hour:D2}:{minute:D2}";
+            }
+
+            else
+            {
+                textController.Text = $"{hour:D2} {minute:D2}";
+            }
 
             Seconds += Time.deltaTime * timeSpeed;
         }
-
-        private IEnumerator blinking;
 
         private IEnumerator Blinking()
         {
@@ -146,12 +154,12 @@ namespace ZL.Unity.UI
                 {
                     if (seconds % 1 < 0.5f)
                     {
-                        textController.Text = $"{hour:D2}:{minute:D2}";
+                        isBlinked = false;
                     }
 
                     else
                     {
-                        textController.Text = $"{hour:D2} {minute:D2}";
+                        isBlinked = true;
                     }
 
                     yield return null;
@@ -159,13 +167,13 @@ namespace ZL.Unity.UI
 
                 else
                 {
-                    textController.Text = $"{hour:D2}:{minute:D2}";
+                    isBlinked = false;
 
-                    yield return WaitForSecondsCache.Get(0.5f);
+                    yield return new WaitForSeconds(0.5f);
 
-                    textController.Text = $"{hour:D2} {minute:D2}";
+                    isBlinked = true;
 
-                    yield return WaitForSecondsCache.Get(0.5f);
+                    yield return new WaitForSeconds(0.5f);
                 }
             }
         }

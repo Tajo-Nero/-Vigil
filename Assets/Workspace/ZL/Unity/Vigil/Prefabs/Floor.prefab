@@ -3105,14 +3105,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8727114142462290415}
     m_Modifications:
-    - target: {fileID: 1344626325160218, guid: 45a31710c4991d74387ed81f2965245b, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 1809592784631704, guid: 45a31710c4991d74387ed81f2965245b, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 4590188976461438, guid: 45a31710c4991d74387ed81f2965245b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -3690,14 +3682,6 @@ PrefabInstance:
     - target: {fileID: 1344626325160218, guid: 45a31710c4991d74387ed81f2965245b, type: 3}
       propertyPath: m_Name
       value: lamp_ceiling_w_light
-      objectReference: {fileID: 0}
-    - target: {fileID: 1344626325160218, guid: 45a31710c4991d74387ed81f2965245b, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 1809592784631704, guid: 45a31710c4991d74387ed81f2965245b, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4590188976461438, guid: 45a31710c4991d74387ed81f2965245b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7242,14 +7226,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: lamp_ceiling_w_light
       objectReference: {fileID: 0}
-    - target: {fileID: 1344626325160218, guid: 45a31710c4991d74387ed81f2965245b, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 1809592784631704, guid: 45a31710c4991d74387ed81f2965245b, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 4590188976461438, guid: 45a31710c4991d74387ed81f2965245b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6
@@ -9350,14 +9326,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: lamp_ceiling_w_light
       objectReference: {fileID: 0}
-    - target: {fileID: 1344626325160218, guid: 45a31710c4991d74387ed81f2965245b, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 1809592784631704, guid: 45a31710c4991d74387ed81f2965245b, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 4590188976461438, guid: 45a31710c4991d74387ed81f2965245b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11216,14 +11184,6 @@ PrefabInstance:
     - target: {fileID: 1344626325160218, guid: 45a31710c4991d74387ed81f2965245b, type: 3}
       propertyPath: m_Name
       value: lamp_ceiling_w_light
-      objectReference: {fileID: 0}
-    - target: {fileID: 1344626325160218, guid: 45a31710c4991d74387ed81f2965245b, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 1809592784631704, guid: 45a31710c4991d74387ed81f2965245b, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4590188976461438, guid: 45a31710c4991d74387ed81f2965245b, type: 3}
       propertyPath: m_LocalPosition.x
