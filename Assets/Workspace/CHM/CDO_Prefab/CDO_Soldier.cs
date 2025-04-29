@@ -5,16 +5,14 @@ public class CDO_Soldier : MonoBehaviour
 {
     Animator animator;
     AudioSource audioSource;
+    private Renderer soldierRenderer; // 두 번째 자식 오브젝트의 Renderer 가져오기
 
     private bool isLiedown = false; // 엎드려 상태 확인
 
-    // 애니메이션 상태 Enum (Idle 제거)
     private enum AnimationState { Attention, Liedown, Standup, Salute }
-
-    // 오디오 상태 Enum (Idle 제거)
     private enum AudioState { Attention, Liedown, Standup, Salute }
 
-    private AnimationState currentState = AnimationState.Attention; // 기본 상태를 Attention으로 변경
+    private AnimationState currentState = AnimationState.Attention; // 기본 상태
     private Dictionary<AudioState, AudioClip> audioClips = new Dictionary<AudioState, AudioClip>();
 
     public AudioClip attentionSound;
@@ -22,20 +20,26 @@ public class CDO_Soldier : MonoBehaviour
     public AudioClip standupSound;
     public AudioClip saluteSound;
 
+    public Texture inspectorTexture; // Inspector에서 할당할 텍스처
+
     void Start()
     {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
 
-        // 오디오 클립 등록 (Idle 제거)
+        // 두 번째 자식 오브젝트의 Renderer 가져오기
+        Transform secondChild = transform.GetChild(1);
+        if (secondChild != null)
+        {
+            soldierRenderer = secondChild.GetComponent<Renderer>();
+        }
+
+        // 오디오 클립 등록
         audioClips.Add(AudioState.Attention, attentionSound);
         audioClips.Add(AudioState.Liedown, liedownSound);
         audioClips.Add(AudioState.Standup, standupSound);
         audioClips.Add(AudioState.Salute, saluteSound);
-
-        // 초기 상태 설정 (Idle 제거 후 Attention 기본 상태)
-        //SetAnimationState(AnimationState.Attention);
-    }  
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -46,7 +50,7 @@ public class CDO_Soldier : MonoBehaviour
 
     void Salute()
     {
-        SetAnimationState(AnimationState.Salute);
+        SetAnimationState(AnimationState.Salute);        
     }
 
     public void Rest()
@@ -85,6 +89,19 @@ public class CDO_Soldier : MonoBehaviour
         if (audioClips.ContainsKey(state) && audioClips[state] != null)
         {
             audioSource.PlayOneShot(audioClips[state]);
+        }
+    }
+
+    //이름 홍길동으로 바꿈
+    public void ApplyInspectorTexture()
+    {
+        if (soldierRenderer != null && soldierRenderer.material != null && inspectorTexture != null)
+        {
+            soldierRenderer.material.SetTexture("_MainTex", inspectorTexture);
+        }
+        else
+        {
+            Debug.LogWarning("Renderer, Material 또는 텍스처가 설정되지 않았습니다!");
         }
     }
 }
