@@ -2660,6 +2660,10 @@ PrefabInstance:
       propertyPath: attentionSound
       value: 
       objectReference: {fileID: 8300000, guid: de8b04aaa9042ee44a4852ac7de4cca7, type: 3}
+    - target: {fileID: 4785045843101883929, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: inspectorTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: d21f8abc1435b924e8c66e269a39cd44, type: 3}
     - target: {fileID: 5651246731867413090, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
       propertyPath: m_Avatar
       value: 
