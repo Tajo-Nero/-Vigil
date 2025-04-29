@@ -899,6 +899,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Next Button (TMP)
       objectReference: {fileID: 0}
+    - target: {fileID: 8463836361055633872, guid: 13793794b4a65d348a67deef871dc84c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8912826444124871158, guid: 13793794b4a65d348a67deef871dc84c, type: 3}
       propertyPath: m_text
       value: Next
@@ -1407,6 +1411,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prev Button (TMP)
       objectReference: {fileID: 0}
+    - target: {fileID: 8463836361055633872, guid: 13793794b4a65d348a67deef871dc84c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8912826444124871158, guid: 13793794b4a65d348a67deef871dc84c, type: 3}
       propertyPath: m_text
       value: Prev
@@ -1573,7 +1581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1531479932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2423,7 +2431,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe3363a7f2b7b054ebf305140052d411, type: 2}
   m_sharedMaterial: {fileID: -447024687859427639, guid: fe3363a7f2b7b054ebf305140052d411, type: 2}
@@ -2673,7 +2681,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe3363a7f2b7b054ebf305140052d411, type: 2}
   m_sharedMaterial: {fileID: -447024687859427639, guid: fe3363a7f2b7b054ebf305140052d411, type: 2}
@@ -3044,7 +3052,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe3363a7f2b7b054ebf305140052d411, type: 2}
   m_sharedMaterial: {fileID: -447024687859427639, guid: fe3363a7f2b7b054ebf305140052d411, type: 2}
@@ -3216,7 +3224,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe3363a7f2b7b054ebf305140052d411, type: 2}
   m_sharedMaterial: {fileID: -447024687859427639, guid: fe3363a7f2b7b054ebf305140052d411, type: 2}
@@ -3476,7 +3484,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 794409013}
         m_TargetAssemblyTypeName: ZL.Unity.Vigil.MainSceneDirector, Assembly-CSharp
         m_MethodName: LoadNextLevel
         m_Mode: 6
@@ -3701,7 +3709,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 794409013}
         m_TargetAssemblyTypeName: ZL.Unity.Vigil.MainSceneDirector, Assembly-CSharp
         m_MethodName: LoadNextLevel
         m_Mode: 6
@@ -3840,7 +3848,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 794409013}
         m_TargetAssemblyTypeName: ZL.Unity.Vigil.MainSceneDirector, Assembly-CSharp
         m_MethodName: LoadNextLevel
         m_Mode: 6
@@ -4009,7 +4017,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 794409013}
         m_TargetAssemblyTypeName: ZL.Unity.Vigil.MainSceneDirector, Assembly-CSharp
         m_MethodName: LoadNextLevel
         m_Mode: 6
