@@ -219,7 +219,7 @@ MonoBehaviour:
   startDelay: 0
   fadeScreen: {fileID: 912177055}
   fadeDuration: 2
-  player: {fileID: 3365591720146918325}
+  player: {fileID: 1203074683}
   playerSpawnPoint: {fileID: 3397859153831258112}
   digitalClock1: {fileID: 173452809618540367}
   digitalClock2: {fileID: 1433423607051058448}
@@ -346,6 +346,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 331537304202074055, guid: 9066cb56f172743498aaceb9dc6b1d93, type: 3}
   m_PrefabInstance: {fileID: 6629607806917067500}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1203074683 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4454976207143426413, guid: 27d955c09fb6c9b41843e48314d5e554, type: 3}
+  m_PrefabInstance: {fileID: 3365591720146918324}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1229969379 stripped
 Transform:
@@ -1005,7 +1010,7 @@ PrefabInstance:
     - target: {fileID: 4586825008672639511, guid: 104ef415cbd0a684fb70b2b76c7f0157, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 3365591720146918325}
+      objectReference: {fileID: 1203074683}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1438,7 +1443,7 @@ PrefabInstance:
     - target: {fileID: 1601006427172498849, guid: c7c8abfcad6213f4eba798f2decd0c10, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 3365591720146918325}
+      objectReference: {fileID: 1203074683}
     - target: {fileID: 8975594914719496977, guid: c7c8abfcad6213f4eba798f2decd0c10, type: 3}
       propertyPath: exchangeTarget
       value: 
