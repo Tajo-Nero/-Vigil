@@ -34,7 +34,7 @@ public class CDO_Soldier : MonoBehaviour
         audioClips.Add(AudioState.Salute, saluteSound);
 
         // 초기 상태 설정 (Idle 제거 후 Attention 기본 상태)
-        SetAnimationState(AnimationState.Attention);
+        //SetAnimationState(AnimationState.Attention);
     }  
 
     private void OnTriggerEnter(Collider other)
