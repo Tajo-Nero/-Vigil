@@ -17,11 +17,15 @@ public class PhoneBox_Ctrl : MonoBehaviour
         {
             Debug.LogError("AudioSource가 추가되지 않았습니다!");
         }
-
-        // 8초마다 PlaySound 실행
-        // 나중에 생성될때 실행하면됨 
+        
+        Invoke("StartRepeatingSound", 5f);
+    }
+    void StartRepeatingSound()
+    {
+        // 사운드 시작 후 8초마다 반복 실행
         InvokeRepeating("PlaySound", 0f, 8f);
     }
+
 
     void PlaySound()
     {
@@ -36,7 +40,12 @@ public class PhoneBox_Ctrl : MonoBehaviour
     public void StopSound()
     {
         if (_audioSource != null)
-        {
+        {void StartRepeatingSound()
+{
+    // 사운드 시작 후 8초마다 반복 실행
+    InvokeRepeating("PlaySound", 0f, 8f);
+}
+
             _audioSource.loop = false;
             _audioSource.Stop();
             isSoundPlaying = false;
