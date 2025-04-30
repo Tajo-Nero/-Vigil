@@ -12,12 +12,12 @@ namespace ZL.Unity.Phys
         {
             if (isWireGizmo == true)
             {
-                Gizmos.DrawWireSphere(Vector3.zero, transform.lossyScale.GetMaxAxis());
+                Gizmos.DrawWireSphere(Vector3.zero, transform.lossyScale.GetMaxAxis() * 0.5f);
             }
 
             else
             {
-                Gizmos.DrawSphere(Vector3.zero, transform.lossyScale.GetMaxAxis());
+                Gizmos.DrawSphere(Vector3.zero, transform.lossyScale.GetMaxAxis() * 0.5f);
             }
         }
 

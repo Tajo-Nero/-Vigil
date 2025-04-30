@@ -66,7 +66,7 @@ namespace ZL.Unity.Phys
             {
                 isChecked = false;
 
-                onEnterEvent.Invoke();
+                onExitEvent.Invoke();
             }
         }
     }
