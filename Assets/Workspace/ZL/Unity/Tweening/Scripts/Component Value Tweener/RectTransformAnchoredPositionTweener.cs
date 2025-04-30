@@ -22,7 +22,7 @@ namespace ZL.Unity.Tweening
 
         private RectTransform rectTransform;
 
-        protected override Vector2 Value
+        public override Vector2 Value
         {
             get => rectTransform.anchoredPosition;
 

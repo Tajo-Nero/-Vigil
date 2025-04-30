@@ -14,5 +14,12 @@ namespace ZL.Unity
 
             return instance;
         }
+
+        public static Color Alpha(this Color instance, in float alpha)
+        {
+            instance.a = alpha;
+
+            return instance;
+        }
     }
 }

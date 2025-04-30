@@ -12,6 +12,8 @@ namespace ZL.Unity.Singleton
 
         where TMonoSingleton : MonoSingleton<TMonoSingleton>
     {
+        public static TMonoSingleton Instance { get; private set; }
+
         protected virtual void Awake()
         {
             ISingleton<TMonoSingleton>.TrySetInstance((TMonoSingleton)this);

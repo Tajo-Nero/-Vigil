@@ -20,7 +20,7 @@ namespace ZL.Unity.Tweening
 
         protected CanvasGroup canvasGroup;
 
-        protected override float Value
+        public override float Value
         {
             get => canvasGroup.alpha;
             

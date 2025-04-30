@@ -22,7 +22,7 @@ namespace ZL.Unity.Tweening
 
         private Graphic graphic;
 
-        protected override Color Value
+        public override Color Value
         {
             get => graphic.color;
 

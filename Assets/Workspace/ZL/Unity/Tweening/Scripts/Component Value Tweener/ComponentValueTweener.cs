@@ -76,7 +76,7 @@ namespace ZL.Unity.Tweening
             get => tweener.Current;
         }
 
-        protected abstract T1 Value { get; set; }
+        public abstract T1 Value { get; set; }
 
         protected virtual void Awake()
         {
@@ -90,12 +90,7 @@ namespace ZL.Unity.Tweening
             Ease = (Ease)value;
         }
 
-        public TweenerCore<T1, T2, TPlugOptions> Tween(T2 endValue)
-        {
-            return tweener.Tween(endValue);
-        }
-
-        public TweenerCore<T1, T2, TPlugOptions> Tween(T2 endValue, float duration)
+        public TweenerCore<T1, T2, TPlugOptions> Tween(T2 endValue, float duration = -1f)
         {
             return tweener.Tween(endValue, duration);
         }
