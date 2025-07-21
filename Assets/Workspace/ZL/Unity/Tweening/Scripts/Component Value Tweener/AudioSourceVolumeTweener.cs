@@ -22,7 +22,7 @@ namespace ZL.Unity.Tweening
 
         private AudioSource audioSource;
 
-        protected override float Value
+        public override float Value
         {
             get => audioSource.volume;
             

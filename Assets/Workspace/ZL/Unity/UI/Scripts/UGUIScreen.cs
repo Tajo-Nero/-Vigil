@@ -1,16 +1,18 @@
 ﻿using DG.Tweening;
 
+using DG.Tweening.Plugins.Options;
+
 using UnityEngine;
 
 using UnityEngine.Events;
 
 using ZL.Unity.Tweening;
 
-namespace ZL.Unity.UI
+namespace ZL.Unity.Tweening
 {
-    [AddComponentMenu("ZL/UI/UGUI Screen")]
+    [DisallowMultipleComponent]
 
-    public sealed class UGUIScreen : CanvasGroupAlphaTweener
+    public abstract class AlphaFader : MonoBehaviour
     {
         [Space]
 
@@ -18,11 +20,11 @@ namespace ZL.Unity.UI
 
         [UsingCustomProperty]
 
-        [GetComponentInParentOnly]
+        [GetComponent]
 
         [ReadOnly(true)]
 
-        private UGUIScreenGroup screenGroup;
+        protected ComponentValueTweener<FloatTweener, float, float, FloatOptions> tweener;
 
         [Space]
 
@@ -36,7 +38,7 @@ namespace ZL.Unity.UI
 
         [Button("ToggleFaded")]
 
-        private bool isFadedIn = false;
+        protected bool isFadedIn = false;
 
         public bool IsFadedIn
         {
@@ -47,7 +49,7 @@ namespace ZL.Unity.UI
 
         [SerializeField]
 
-        private UnityEvent onFadeInEvent;
+        protected UnityEvent onFadeInEvent;
 
         public UnityEvent OnFadeInEvent => onFadeInEvent;
 
@@ -55,7 +57,7 @@ namespace ZL.Unity.UI
 
         [SerializeField]
 
-        private UnityEvent onFadedInEvent;
+        protected UnityEvent onFadedInEvent;
 
         public UnityEvent OnFadedInEvent => onFadedInEvent;
 
@@ -63,7 +65,7 @@ namespace ZL.Unity.UI
 
         [SerializeField]
 
-        private UnityEvent onFadeOutEvent;
+        protected UnityEvent onFadeOutEvent;
 
         public UnityEvent OnFadeOutEvent => onFadeOutEvent;
 
@@ -71,11 +73,11 @@ namespace ZL.Unity.UI
 
         [SerializeField]
 
-        private UnityEvent onFadedOutEvent;
+        protected UnityEvent onFadedOutEvent;
 
         public UnityEvent OnFadedOutEvent => onFadedOutEvent;
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
 
         public void ToggleFaded()
         {
@@ -90,81 +92,84 @@ namespace ZL.Unity.UI
             }
         }
 
-        #endif
+#endif
 
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
-
             if (isFadedIn == true)
             {
-                canvasGroup.alpha = 1f;
+                tweener.Value = 1f;
 
                 gameObject.SetActive(true);
             }
 
             else
             {
-                canvasGroup.alpha = 0f;
+                tweener.Value = 0f;
 
                 gameObject.SetActive(false);
             }
         }
 
-        public void FadeIn()
+        public virtual void FadeIn(float duration = -1f)
         {
-            screenGroup?.SwapCurrent(this);
-
             gameObject.SetActive(true);
 
             isFadedIn = true;
 
             onFadeInEvent.Invoke();
 
-            Tween(1f).OnComplete(OnFadedIn);
+            tweener.Tween(1f, duration).OnComplete(OnFadedIn);
         }
 
-        public void FadeIn(float fadeDuration)
-        {
-            screenGroup?.SwapCurrent(this);
-
-            gameObject.SetActive(true);
-
-            isFadedIn = true;
-
-            onFadeInEvent.Invoke();
-
-            Tween(1f, fadeDuration).OnComplete(OnFadedIn);
-        }
-
-        private void OnFadedIn()
+        protected void OnFadedIn()
         {
             onFadedInEvent.Invoke();
         }
 
-        public void FadeOut()
+        public void FadeOut(float duration = -1f)
         {
             isFadedIn = false;
 
             onFadeOutEvent.Invoke();
 
-            Tween(0f).OnComplete(OnFadedOut);
+            tweener.Tween(0f, duration).OnComplete(OnFadedOut);
         }
 
-        public void FadeOut(float fadeDuration)
-        {
-            isFadedIn = false;
-
-            onFadeOutEvent.Invoke();
-
-            Tween(0f, fadeDuration).OnComplete(OnFadedOut);
-        }
-
-        private void OnFadedOut()
+        protected void OnFadedOut()
         {
             onFadedOutEvent.Invoke();
 
             gameObject.SetActive(false);
+        }
+    }
+}
+
+namespace ZL.Unity.UI
+{
+    [AddComponentMenu("ZL/UI/UGUI Screen")]
+
+    [RequireComponent(typeof(CanvasGroupAlphaTweener))]
+
+    public class UGUIScreen : AlphaFader
+    {
+        [Space]
+
+        [SerializeField]
+
+        [UsingCustomProperty]
+
+        [GetComponentInParentOnly]
+
+        [ReadOnly(true)]
+
+        private UGUIScreenGroup screenGroup;
+
+        public override void FadeIn(float duration = -1f)
+        {
+            screenGroup?.SwapCurrent(this);
+
+            base.FadeIn(duration);
         }
     }
 }

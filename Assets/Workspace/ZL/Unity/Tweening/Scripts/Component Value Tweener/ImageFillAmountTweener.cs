@@ -24,7 +24,7 @@ namespace ZL.Unity.Tweening
 
         private Image image;
 
-        protected override float Value
+        public override float Value
         {
             get => image.fillAmount;
 

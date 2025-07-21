@@ -14,7 +14,7 @@ namespace ZL.Unity
 
         [SerializeField]
 
-        private BoolPref runInBackgroundPref = new("Run In Background", true);
+        private BoolPref runInBackgroundPref = new("Run In Background", false);
 
         public BoolPref RunInBackgroundPref
         {

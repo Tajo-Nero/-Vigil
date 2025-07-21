@@ -24,8 +24,6 @@ namespace ZL.Unity.Vigil
 
         public void OccurRandomAnomaly()
         {
-            FixedDebug.Log(anomaliesQueue.Count);
-
             if (anomaliesQueue.Count == 0)
             {
                 anomalies.CopyTo(ref anomaliesQueue);

@@ -8,7 +8,7 @@ namespace ZL.Unity.Tweening
 
     public sealed class TransformLocalRotationTweener : ComponentValueTweener<QuaternionTweener, Quaternion, Vector3, QuaternionOptions>
     {
-        protected override Quaternion Value
+        public override Quaternion Value
         {
             get => transform.localRotation;
 

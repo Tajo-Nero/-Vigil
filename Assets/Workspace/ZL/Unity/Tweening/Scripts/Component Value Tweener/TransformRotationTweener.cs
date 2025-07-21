@@ -16,7 +16,7 @@ namespace ZL.Unity.Tweening
 
         private RotateMode rotateMode;
 
-        protected override Quaternion Value
+        public override Quaternion Value
         {
             get => transform.rotation;
 

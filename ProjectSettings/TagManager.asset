@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Receiver
+  - DownStair
+  - UpStair
   layers:
   - Default
   - TransparentFX
@@ -12,7 +14,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
+  - None Static
   - 
   - 
   - 

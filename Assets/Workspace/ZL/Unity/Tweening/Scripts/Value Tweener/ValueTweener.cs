@@ -137,9 +137,14 @@ namespace ZL.Unity.Tweening
             return Tween(endValue, duration);
         }
 
-        public TweenerCore<T1, T2, TPlugOptions> Tween(T2 endValue, float duration)
+        public TweenerCore<T1, T2, TPlugOptions> Tween(T2 endValue, float duration = -1f)
         {
             Current.Kill();
+
+            if (duration < 0f)
+            {
+                duration = this.duration;
+            }
 
             Current = To(getter, setter, endValue, duration);
 

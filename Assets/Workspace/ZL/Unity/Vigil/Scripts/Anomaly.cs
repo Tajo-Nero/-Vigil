@@ -37,9 +37,15 @@ namespace ZL.Unity.Vigil
         {
             transform.SetPositionAndRotation(poseOrigin);
 
-            animator?.Rebind();
-
-            exchangeTarget?.SetActive(true);
+            if (animator != null)
+            {
+                animator.Rebind();
+            }
+            
+            if (exchangeTarget != null)
+            {
+                exchangeTarget.SetActive(true);
+            }
         }
     }
 }

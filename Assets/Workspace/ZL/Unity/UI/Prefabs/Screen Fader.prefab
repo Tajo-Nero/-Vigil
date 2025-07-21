@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5149127529849738362}
   - component: {fileID: 4545078695066823330}
   - component: {fileID: 7764160314332781730}
+  - component: {fileID: 1140467497016208344}
   - component: {fileID: 7385273142717139498}
   m_Layer: 0
-  m_Name: Fade Screen
+  m_Name: Screen Fader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +90,7 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &7385273142717139498
+--- !u!114 &1140467497016208344
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,7 +99,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6774704113132190040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7de13888ac3b1b4eb71afaf13b8cf43, type: 3}
+  m_Script: {fileID: 11500000, guid: baa6ef35b2c9ff1439d8656aa9dbd5f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tweener:
@@ -115,7 +116,19 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   canvasGroup: {fileID: 7764160314332781730}
-  screenGroup: {fileID: 0}
+--- !u!114 &7385273142717139498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6774704113132190040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7de13888ac3b1b4eb71afaf13b8cf43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweener: {fileID: 1140467497016208344}
   isFadedIn: 1
   onFadeInEvent:
     m_PersistentCalls:
@@ -129,3 +142,4 @@ MonoBehaviour:
   onFadedOutEvent:
     m_PersistentCalls:
       m_Calls: []
+  screenGroup: {fileID: 0}

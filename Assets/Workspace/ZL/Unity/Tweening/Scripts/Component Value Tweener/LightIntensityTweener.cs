@@ -26,7 +26,7 @@ namespace ZL.Unity.Tweening
 
         #pragma warning restore CS0108
 
-        protected override float Value
+        public override float Value
         {
             get => light.intensity;
             

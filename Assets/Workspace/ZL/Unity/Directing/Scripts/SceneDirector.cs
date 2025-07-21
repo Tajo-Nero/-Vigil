@@ -10,8 +10,6 @@ using ZL.Unity.Singleton;
 
 using ZL.Unity.Tweening;
 
-using ZL.Unity.UI;
-
 namespace ZL.Unity.Directing
 {
     [AddComponentMenu("ZL/Directing/Scene Director (Singleton)")]
@@ -35,7 +33,7 @@ namespace ZL.Unity.Directing
 
         [SerializeField]
 
-        protected UGUIScreen fadeScreen;
+        protected AlphaFader screenFader;
 
         [SerializeField]
 
@@ -58,7 +56,7 @@ namespace ZL.Unity.Directing
         public virtual void LoadScene(string sceneName)
         {
             FadeOut();
-
+            
             FixedSceneManager.LoadScene(this, fadeDuration, sceneName);
         }
 
@@ -66,14 +64,19 @@ namespace ZL.Unity.Directing
         {
             ISingleton<AudioListenerVolumeTweener>.Instance?.Tween(1f, fadeDuration);
 
-            fadeScreen?.FadeOut(fadeDuration);
+            screenFader?.FadeOut(fadeDuration);
         }
 
         public void FadeOut()
         {
             ISingleton<AudioListenerVolumeTweener>.Instance?.Tween(0f, fadeDuration);
 
-            fadeScreen?.FadeIn(fadeDuration);
+            screenFader?.FadeIn(fadeDuration);
+        }
+
+        public virtual void Quit()
+        {
+            FixedApplication.Quit();
         }
     }
 }

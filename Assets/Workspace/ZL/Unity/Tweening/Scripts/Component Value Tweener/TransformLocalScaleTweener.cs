@@ -8,7 +8,7 @@ namespace ZL.Unity.Tweening
 
     public sealed class TransformLocalScaleTweener : ComponentValueTweener<Vector3Tweener, Vector3, Vector3, VectorOptions>
     {
-        protected override Vector3 Value
+        public override Vector3 Value
         {
             get => transform.localScale;
             
