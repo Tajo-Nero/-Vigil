@@ -4,8 +4,7 @@ using UnityEngine;
 public class ReceiverSound : MonoBehaviour
 {
     private PhoneBox_Ctrl _phoneBoxCtrl;
-    public Texture newTexture;
-    public GameObject bloodObject; //  CDO_Blood_Ctrl 오브젝트
+    public Texture newTexture;   
 
     private MeshRenderer phoneBoxRenderer;
     private MeshRenderer firstChildRenderer;
@@ -30,10 +29,7 @@ public class ReceiverSound : MonoBehaviour
             childLight.range = 5f;
             childLight.intensity = 4f;
             childLight.spotAngle = 100f;
-        }
-
-        //  초기 상태에서 CDO_Blood_Ctrl 오브젝트를 비활성화
-        if (bloodObject != null) bloodObject.SetActive(false);
+        }        
     }
 
     public void OnSelectEntered()
@@ -52,10 +48,7 @@ public class ReceiverSound : MonoBehaviour
 
         ChangeMaterial(phoneBoxRenderer);
         ChangeMaterial(firstChildRenderer);
-        ChangeLightColor();
-
-        //  전화 받으면 CDO_Blood_Ctrl 오브젝트 활성화
-        if (bloodObject != null) bloodObject.SetActive(true);
+        ChangeLightColor();       
     }
 
     private void ChangeMaterial(MeshRenderer renderer)

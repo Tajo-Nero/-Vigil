@@ -48,6 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oiia: {fileID: 5077717111549170490}
   maxwell: {fileID: 8594584442763569939}
+  audioSource: {fileID: 8506006819903352169}
+  spinner: {fileID: 6561777653953106881}
+  pingPong: {fileID: 3093341752860852567}
 --- !u!1001 &2156663319490355581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -190,6 +193,22 @@ PrefabInstance:
 --- !u!4 &5076328892048227446 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3074802162061375726, guid: f1d045a3b3758e349a7386c934bc5ed9, type: 3}
+  m_PrefabInstance: {fileID: 7843399722547233944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6561777653953106881 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4019819456722884441, guid: f1d045a3b3758e349a7386c934bc5ed9, type: 3}
+  m_PrefabInstance: {fileID: 7843399722547233944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8594584442763569939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea1b61bdb38d9e45a96f5ea1829662b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &8506006819903352169 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1932662574112893425, guid: f1d045a3b3758e349a7386c934bc5ed9, type: 3}
   m_PrefabInstance: {fileID: 7843399722547233944}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8594584442763569939 stripped

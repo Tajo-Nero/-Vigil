@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2093664504590198241, guid: 0bae4c7a62f5caa4fba1f7fbf5c4917f, type: 3}
       propertyPath: m_Name
-      value: Room 3 (Anomaly) Variant
+      value: Room 3 (Anomaly)
       objectReference: {fileID: 0}
     - target: {fileID: 2093664504590198241, guid: 0bae4c7a62f5caa4fba1f7fbf5c4917f, type: 3}
       propertyPath: m_IsActive
@@ -56,7 +56,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1287281072437651175, guid: 0bae4c7a62f5caa4fba1f7fbf5c4917f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

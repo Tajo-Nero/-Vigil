@@ -56,7 +56,7 @@ namespace ZL.Unity.Directing
         public virtual void LoadScene(string sceneName)
         {
             FadeOut();
-
+            
             FixedSceneManager.LoadScene(this, fadeDuration, sceneName);
         }
 
