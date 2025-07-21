@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &864376956675422039
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3559983191526507611, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559983191526507611, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559983191526507611, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559983191526507611, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559983191526507611, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559983191526507611, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559983191526507611, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559983191526507611, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559983191526507611, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559983191526507611, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559983191526507611, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559983191526507611, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559983191526507611, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191806122115260129, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: m_Name
+      value: CDO_Soldier
+      objectReference: {fileID: 0}
+    - target: {fileID: 5651246731867413090, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d18c19765aee1f848bf3eb34e56ba3ec, type: 2}
+    m_RemovedComponents:
+    - {fileID: 4785045843101883929, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4191806122115260129, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 3699365026875997848}
+  m_SourcePrefab: {fileID: 100100000, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+--- !u!1 &3590120102816065974 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4191806122115260129, guid: 635e98f649e82fb4896cd142fd16c186, type: 3}
+  m_PrefabInstance: {fileID: 864376956675422039}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3699365026875997848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3590120102816065974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2ba51d907695048b2bc846370a6676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMeet: 0
+  attentionSound: {fileID: 8300000, guid: eea7b9bc7957273499216492d6bb2417, type: 3}
+  liedownSound: {fileID: 8300000, guid: abe128daad81e6643b3760adab33d6b3, type: 3}
+  standupSound: {fileID: 8300000, guid: 32b28aba84a58814db2416b6a1bbb003, type: 3}
+  saluteSound: {fileID: 8300000, guid: fc48e7865daf33a43bebcd377cbb49c2, type: 3}
