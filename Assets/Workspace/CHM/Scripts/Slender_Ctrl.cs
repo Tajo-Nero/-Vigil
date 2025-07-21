@@ -11,6 +11,7 @@ public class Slender_Ctrl : MonoBehaviour
     public float runSpeed = 0f;  // 뛰기 속도 (0~1)
     public float moveSpeed = 3.5f; // 이동 속도
     private bool isIdle = true; // Idle 상태 유지 여부
+    private bool isActive = true; // 활성 상태 유지 여부
 
     private AudioSource audioSource;
     public AudioClip runSound; // Run 상태에서 재생할 사운드
@@ -19,6 +20,9 @@ public class Slender_Ctrl : MonoBehaviour
     {
         animator = GetComponent<Animator>(); // 애니메이터 가져오기
         audioSource = GetComponent<AudioSource>(); // 오디오 소스 가져오기
+
+        // 2초 간격으로 활성화 상태 변경
+        InvokeRepeating("ToggleActiveState", 0f, 2f);
     }
 
     void Update()
@@ -37,6 +41,15 @@ public class Slender_Ctrl : MonoBehaviour
     }
 
     /// <summary>
+    /// 활성화 상태를 2초마다 변경 (켜졌다 꺼졌다 반복)
+    /// </summary>
+    void ToggleActiveState()
+    {
+        isActive = !isActive;
+        gameObject.SetActive(isActive);
+    }
+
+    /// <summary>
     /// 플레이어 감지 후 이동 여부 결정.
     /// 감지되면 즉시 Run 상태로 변경, 감지 범위를 벗어나면 Idle 상태 유지.
     /// </summary>
@@ -46,6 +59,11 @@ public class Slender_Ctrl : MonoBehaviour
 
         if (hitColliders.Length > 0)
         {
+            // 플레이어가 감지되면 꺼졌다 켜지는 반복을 멈추고 항상 활성화 상태 유지
+            CancelInvoke("ToggleActiveState");
+            isActive = true;
+            gameObject.SetActive(true);
+
             if (isIdle) // Idle 상태에서 Run으로 변경될 때만 사운드 실행
             {
                 if (!audioSource.isPlaying)
