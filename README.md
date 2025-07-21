@@ -109,16 +109,3 @@ Unity를 활용한 "8번출구" 게임의 모작 프로젝트입니다. 무한 �
 
 </details>
 
-## 시작하기
-
-### 요구사항
-- Unity 2022.3.XX LTS 이상
-- Git
-
-### 설치 방법
-```bash
-# 저장소 클론
-git clone https://github.com/Tajo-Nero/-Vigil.git
-
-# Unity Hub에서 프로젝트 열기
-# File > Open Project > 클론한 폴더 선택
